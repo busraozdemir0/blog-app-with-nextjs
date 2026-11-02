@@ -1,6 +1,8 @@
 
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import Navigation from "@/components/Navigation";
 import "./globals.css";
+import { Container } from "@mui/material";
 
 export const metadata = {
   title: {
@@ -17,8 +19,12 @@ export default function RootLayout({ children }) {
         <header>
           <Navigation />
         </header>
-        <main>{children}</main>
-        <footer>Footer</footer>
+        <main>
+          <AppRouterCacheProvider>
+            <Container sx={{ my: 3 }}>{children}</Container>
+          </AppRouterCacheProvider>
+        </main>
+        {/* <footer>Footer</footer> */}
       </body>
     </html>
   );
